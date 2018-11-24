@@ -68,6 +68,9 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  # I am using "assets" route so I need to give Asset Pipeline another mount point 
+  config.assets.prefix = '/assetz'
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 

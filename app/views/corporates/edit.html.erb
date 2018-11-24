@@ -1,0 +1,35 @@
+<h1>Editing asset</h1>
+ 
+<%= form_for :corporate, url: corporate_path(@corporate), method: :patch do |f| %>
+ 
+  <% if @corporate.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@corporate.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @corporate.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :choose_license_package %><br>
+    <%= form.select :license_package_id, LicensePackage.all.collect {|c| [ c.name, c.id ] } %><br>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', corporates_path %>

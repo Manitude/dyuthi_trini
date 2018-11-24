@@ -1,0 +1,35 @@
+<h1>Editing site</h1>
+ 
+<%= form_for :site, url: site_path(@site), method: :patch do |f| %>
+ 
+  <% if @site.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@site.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @site.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :choose_corporate %><br>
+    <%= form.select :corporate_id, Corporate.all.collect {|c| [ c.name, c.id ] } %><br>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', sites_path %>

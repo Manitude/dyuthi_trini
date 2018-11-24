@@ -1,0 +1,9 @@
+<p>
+  <strong>Title:</strong>
+  <%= @corporate.name %>
+</p>
+ 
+<p>
+  <strong>License Package:</strong>
+  <%= LicensePackage.find(@corporate.license_package).name %>
+</p>

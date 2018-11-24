@@ -8,4 +8,13 @@ Rails.application.routes.draw do
   get '/secret', to: 'application#secret', as: 'secret'
   get '/about', to: 'application#about', as: 'about'
   get '/contact', to: 'application#contact', as: 'contact'
+
+  resources :corporates
+  resources :sites
+  resources :plants
+  resources :lines
+  resources :assets
+  resources :tags
+
+
 end

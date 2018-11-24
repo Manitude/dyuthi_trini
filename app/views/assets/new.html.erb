@@ -1,0 +1,30 @@
+<%= form_for :asset, url: assets_path, local: true do |form| %>
+  
+  <% if @asset.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@asset.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @asset.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :choose_line %><br>
+    <%= form.select :line_id, Line.all.collect {|c| [ c.name, c.id ] } %><br>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

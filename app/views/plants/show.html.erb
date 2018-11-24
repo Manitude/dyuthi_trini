@@ -1,0 +1,9 @@
+<p>
+  <strong>Title:</strong>
+  <%= @plant.name %>
+</p>
+ 
+<p>
+  <strong>Site Name:</strong>
+  <%= Site.find(@plant.site_id).name %>
+</p>

@@ -1,0 +1,9 @@
+<p>
+  <strong>Title:</strong>
+  <%= @tag.name %>
+</p>
+ 
+<p>
+  <strong>Asset Name:</strong>
+  <%= Asset.find(@tag.asset_id).name %>
+</p>

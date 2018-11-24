@@ -37,6 +37,9 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # I am using "assets" route so I need to give Asset Pipeline another mount point 
+  config.assets.prefix = '/assetz'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

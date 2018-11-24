@@ -1,0 +1,35 @@
+<h1>Editing line</h1>
+ 
+<%= form_for :line, url: line_path(@line), method: :patch do |f| %>
+ 
+  <% if @line.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@line.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @line.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :choose_plant %><br>
+    <%= form.select :plant_id, Plant.all.collect {|c| [ c.name, c.id ] } %><br>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', lines_path %>

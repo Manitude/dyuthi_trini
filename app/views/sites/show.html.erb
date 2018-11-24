@@ -1,0 +1,9 @@
+<p>
+  <strong>Title:</strong>
+  <%= @site.name %>
+</p>
+ 
+<p>
+  <strong>License Package:</strong>
+  <%= Corporate.find(@site.corporate_id).name %>
+</p>

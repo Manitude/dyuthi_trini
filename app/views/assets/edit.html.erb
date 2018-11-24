@@ -1,0 +1,36 @@
+
+<h1>Editing asset</h1>
+ 
+<%= form_for :asset, url: asset_path(@asset), method: :patch do |f| %>
+ 
+  <% if @asset.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@asset.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @asset.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :choose_line %><br>
+    <%= form.select :line_id, Line.all.collect {|c| [ c.name, c.id ] } %><br>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', assets_path %>

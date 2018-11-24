@@ -1,0 +1,1 @@
+TAG_LIMIT = {"lite" => 20, "popular" => 40, "advanced" => 100, "corporate" => 200}
